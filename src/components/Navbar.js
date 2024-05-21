@@ -51,9 +51,15 @@ function Navbar() {
                 <Link to='/services' className='nav-links' onClick={closeMobileMenu}>
                   News
                 </Link>
-              </li><li className='nav-item'>
-                <Link to='/info' className='nav-links' onClick={closeMobileMenu}>
-                  Info
+              </li>
+              <li className='nav-item'>
+                <Link to='/fixtures' className='nav-links' onClick={closeMobileMenu}>
+                  Matches & Fixtures
+                </Link>
+              </li>
+              <li className='nav-item'>
+                <Link to='/groups' className='nav-links' onClick={closeMobileMenu}>
+                  Groups
                 </Link>
               </li>
               <li className='nav-item'>

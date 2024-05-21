@@ -1,0 +1,90 @@
+/* src/GroupsPage.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f2f5;
+  }
+  
+  .groups-page {
+    padding: 20px;
+  }
+  
+  header {
+    background-color: #0046ae;
+    padding: 20px;
+    color: white;
+    text-align: left;
+  }
+  
+  header h1 {
+    margin: 0;
+  }
+  
+  .groups-container {
+    margin: 20px auto;
+    max-width: 1000px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .group {
+    margin-bottom: 20px;
+  }
+  
+  .group h2 {
+    margin-top: 0;
+    padding: 10px 0;
+    font-size: 1.5em;
+    color: #333;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+  }
+  
+  table th, table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+  }
+  
+  table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+    color: #555;
+  }
+  
+  table td {
+    background-color: #fff;
+    color: #333;
+  }
+  
+  .group-details {
+    text-align: right;
+    margin-top: 10px;
+  }
+  
+  .group-details a {
+    text-decoration: none;
+    color: #0046ae;
+  }
+  
+  .form-guide {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+  }
+  
+  .form-circle {
+    width: 10px;
+    height: 10px;
+    background-color: #ddd;
+    border-radius: 50%;
+    display: inline-block;
+  }
+  
