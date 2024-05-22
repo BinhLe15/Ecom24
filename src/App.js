@@ -9,6 +9,8 @@ import Products from './components/Pages/Products.js';
 import SignIn from './components/Pages/SignIn.js';
 import Matches from './components/Matches.js';
 import Match from './components/Match.js';
+import TeamsPage from './features/Team/TeamPage.js'
+import TeamDetailPage from './features/TeamDetail/TeamDetailPage.js'
 
 import Navbar from './components/Navbar';
 import Footer from './components/Footer.js';
@@ -24,6 +26,8 @@ function App() {
           <Route path="/services" exact element={<Services />}></Route>
           <Route path="/sign-in" exact element={<SignIn />}></Route>
           <Route path="/fixtures" exact element={<Matches />}></Route>
+          <Route path="/teams" exact element={<TeamsPage/>}></Route>
+          <Route path='/teamdetail/:team_key' exact element={<TeamDetailPage/>}></Route>
           <Route path='/info' exact element={''}></Route> 
           <Route path='/groups' exact element={<GroupsPage />}></Route> 
         </Routes>
