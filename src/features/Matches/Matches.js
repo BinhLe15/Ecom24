@@ -18,6 +18,7 @@ function Matches() {
 
               if (response) {
                   setMatchesData(response);
+                  console.log(response)
               } else {
                   console.warn('Not matches founded');
               }
@@ -29,6 +30,8 @@ function Matches() {
           }
 
       }
+
+     
 
 
       getMatchData();

@@ -14,14 +14,14 @@ ChartJS.register(
 	
 );
 
-function CustomPieChart({labels, value }) {
+function CustomPieChart({labels, value, colors }) {
 
 	const data = {
 		labels: labels,
 		datasets: [
 			{
 				data: value,
-				backgroundColor: [ '#205BC8', '#C61D23', '#FFCD44', '#1D2730', '#90EE90'],
+				backgroundColor: colors,
 				borderColor: '#fff',
 			},
 		],

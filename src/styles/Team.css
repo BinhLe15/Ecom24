@@ -135,3 +135,7 @@ h6.MuiTypography-root.MuiTypography-subtitle1.match-group.css-10wpov9-MuiTypogra
     }
 }
 
+.team-stats-card {
+    margin-bottom: 20px; 
+    margin-top: 20px;
+}
