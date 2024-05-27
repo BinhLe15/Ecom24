@@ -11,17 +11,17 @@ import {
 ChartJS.register(
 	ArcElement,
 	Tooltip,
-	Legend,
+	
 );
 
-function CustomPieChart({ }) {
+function CustomPieChart({labels, value }) {
 
 	const data = {
-		labels: ['Food', 'Transportation', 'Rent', 'Utilities', 'Other'],
+		labels: labels,
 		datasets: [
 			{
-				data: [30, 15, 25, 10, 20],
-				backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#FFEA8A', '#90EE90'],
+				data: value,
+				backgroundColor: [ '#205BC8', '#C61D23', '#FFCD44', '#1D2730', '#90EE90'],
 				borderColor: '#fff',
 			},
 		],

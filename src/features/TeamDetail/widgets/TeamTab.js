@@ -36,7 +36,7 @@ function TeamTab({team_key ,players, team_badge}) {
                 <TeamMatches team_key={team_key} />
             </CustomTabPanel>
             <CustomTabPanel value={value} index={2}>
-                <TeamStats></TeamStats>
+                <TeamStats team_key={team_key}></TeamStats>
             </CustomTabPanel>
             <CustomTabPanel value={value} index={3}>
                 <TeamSquad players={players} team_badge={team_badge}></TeamSquad>

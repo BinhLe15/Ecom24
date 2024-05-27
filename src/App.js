@@ -7,8 +7,7 @@ import Home from './components/Pages/Home.js';
 import Services from './components/Pages/Services.js';
 import Products from './components/Pages/Products.js';
 import SignIn from './components/Pages/SignIn.js';
-import Matches from './components/Matches.js';
-import Match from './components/Match.js';
+import Matches from './features/Matches/Matches.js';
 import TeamsPage from './features/Team/TeamPage.js'
 import TeamDetailPage from './features/TeamDetail/TeamDetailPage.js'
 
