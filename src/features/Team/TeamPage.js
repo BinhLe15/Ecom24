@@ -19,6 +19,7 @@ function TeamsPage() {
                 console.log('Fetch teams successfully: ', response);
 
                 setTeamList(response);
+                console.log(response);
                 setIsLoading(false);
 
             } catch (error) {

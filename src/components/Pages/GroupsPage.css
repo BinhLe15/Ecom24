@@ -24,14 +24,16 @@ body {
   .groups-container {
     margin: 20px auto;
     max-width: 1000px;
-    background-color: #fff;
     padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: transparent;
   }
   
   .group {
     margin-bottom: 20px;
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
   }
   
   .group h2 {
