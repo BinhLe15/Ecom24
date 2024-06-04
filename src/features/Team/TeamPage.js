@@ -40,7 +40,7 @@ function TeamsPage() {
                         <header>Teams</header>
                         <div>
                             <div className="team-overview-group">
-                                <Typography variant="h4" className='team-name' align="left" mt={1}>Group stage</Typography>
+                                <Typography variant="h4" className='team-name' align="left" mt={1} marginLeft={5}>Group stage</Typography>
 
                               
 

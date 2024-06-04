@@ -6,7 +6,7 @@ export const BackButton = () => {
     let navigate = useNavigate();
     return (
         <>
-          <button style={{ backgroundColor: 'transparent', border: 'none' }} onClick={() => navigate(-1)}>
+          <button style={{ backgroundColor: 'transparent', border: 'none', display: 'flex', alignItems: 'center' }} onClick={() => navigate(-1)}>
             <ArrowBackIos style={{ color: 'white' }} fontSize='small'></ArrowBackIos>
             <span style={{ color: 'white' }}>Back</span>
           </button>

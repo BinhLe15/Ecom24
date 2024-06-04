@@ -29,6 +29,7 @@
 .team-name {
     padding-bottom: 50px; 
     color: black;
+    
 }
 
 .team {
@@ -65,11 +66,11 @@ header {
 }
 
 .team-header {
-    background-color: #da3339;
-    background-image: url(https://img.uefa.com/imgml/uefacom/performancezone/teams-bg/Austria_Desktop.jpg);
+    background-color: #3753cd;
+    background-image: url(https://img.uefa.com/imgml/uefacom/ucl/tip-bg.jpg);
     background-repeat: no-repeat;
     background-position: 0 0;
-    background-size: auto 300px;
+    background-size: cover;
     padding: 30px;
     color: white;
 }
@@ -77,6 +78,12 @@ header {
 
 .team-header-content {
     padding-bottom: 30px;
+}
+
+.team-header-content .team-name {
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
 }
 
 .time-match {
