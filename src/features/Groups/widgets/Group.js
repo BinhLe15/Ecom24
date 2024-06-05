@@ -1,7 +1,7 @@
 // src/Group.js
-import '../styles/Group.css'
+import '../../../styles/Group.css'
 import React from 'react';
-import './Pages/GroupsPage.css';
+import '../GroupsPage.css';
 import { TableCell, TableContainer, TableBody, TableHead, Table, TableRow, Paper } from '@mui/material';
 
 const Group = ({ group }) => {

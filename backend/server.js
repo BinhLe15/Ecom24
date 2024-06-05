@@ -1,16 +1,25 @@
 const express = require("express");
 const path = require("path");
+const jwt = require("jsonwebtoken")
 const mongoose = require("mongoose");
+const cookieParser = require("cookie-parser")
 
 const DataModel = require("./DataModel")
+const UserModel = require('./models/UserModel');
+
 const connectDB = require("./Database")
 connectDB();
+
 
 const app = express();
 app.use(express.json({extended: false}));
 
 const cors = require("cors");
-app.use(cors());
+app.use(cors({
+    origin: true,
+    credentials: true
+}));
+app.use(cookieParser())
 
 var multer = require('multer');
 
@@ -27,6 +36,56 @@ var storage = multer.diskStorage({
 });
  
 var upload = multer({ storage: storage });
+
+const verifyUser = async (req, res, next) => {
+    try {
+        const token = req.cookies.token;
+
+        if (!token) {
+            return res.json({status: false, message:"no token"});
+        }
+        const decoded = jwt.verify(token, process.env.KEY);
+        next()
+    } catch (err) {
+        return res.json(err);
+    }
+}
+
+app.get('/verify', verifyUser, (req, res) => {
+    return res.json({status: true, message: "authorized" })
+})
+
+app.post('/register', (req, res) => {
+    const name = req.body.name;
+    const email = req.body.email;
+    const password = req.body.password;
+    const role = "user";
+    UserModel.create({name, email, password, role})
+    .then(user => res.json(user))
+    .catch(err => res.json(err))
+
+})
+
+
+app.post('/login', (req, res) => {
+    const {email, password} = req.body;
+    UserModel.find({email: email})
+    .then(user => {
+       
+        if (user) {
+            if (user[0].password === password) {
+                const token = jwt.sign({username: user.username}, process.env.KEY, {expiresIn: '1h'})
+                res.cookie('token', token, {httpOnly: true, maxAge: 360000})
+                res.json({status:"Success", role: user[0].role})
+            } else {
+                res.json("The password is incorrect")
+            }
+        } else { 
+            res.json("No record existed")
+        }
+    })
+ 
+})
 
 app.get("/readfromserver", async (req, res) => {
     try {

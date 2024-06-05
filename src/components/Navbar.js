@@ -5,42 +5,61 @@ import { faTypo3 } from '@fortawesome/free-brands-svg-icons';
 import { faXmark, faBars } from '@fortawesome/free-solid-svg-icons';
 import { Button } from './Button';
 import './Navbar.css';
-import { faFutbol } from '@fortawesome/free-solid-svg-icons';
+import axios from 'axios';
 function Navbar() {
-    const [click, setClick] = useState(false);
-    const [button, setButton] = useState(true);
+  const [click, setClick] = useState(false);
+  const [button, setButton] = useState(true);
 
-    const handleClick = () => setClick(!click);
-    const closeMobileMenu = () => setClick(false);
-    
+  const [isLogin, setIsLogin] = useState(false)
 
-    const showButton = () => {
-      if(window.innerWidth <= 960) {
-        setButton(false);
-      } else {
-        setButton(true);
-      }
+  const handleClick = () => setClick(!click);
+  const closeMobileMenu = () => setClick(false);
+
+  axios.defaults.withCredentials = true;
+
+  useEffect(() => {
+    axios.get('http://localhost:8000/verify')
+      .then(res => {
+        if (res.data.status) {
+          setIsLogin(true)
+        } else {
+
+        }
+      })
+  })
+
+
+
+  const showButton = () => {
+    if (window.innerWidth <= 960) {
+      setButton(false);
+    } else {
+      setButton(true);
     }
+  }
 
-    // show SIGN IN button only 1 time even when refresh
-    useEffect(() => {
-      showButton();
-    }, []);
+  // show SIGN IN button only 1 time even when refresh
+  useEffect(() => {
+    showButton();
+  }, []);
 
-    window.addEventListener('resize', showButton);
+  window.addEventListener('resize', showButton);
 
-    console.log(click)
+  console.log(click)
 
   return (
     <>
       <nav className='navbar'>
         <div className='navbar-container'>
-            <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
-                ECOM24 <FontAwesomeIcon icon={faTypo3} />
-            </Link>
-            <div className='menu-icon' onClick={handleClick}>
-                <FontAwesomeIcon icon={click ? faXmark : faBars} style={{color:'#fff'}} />
-            </div>
+          <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
+            ECOM24 <FontAwesomeIcon icon={faTypo3} />
+          </Link>
+          <div className='menu-icon' onClick={handleClick}>
+            <FontAwesomeIcon icon={click ? faXmark : faBars} style={{ color: '#fff' }} />
+          </div>
+
+
+          {isLogin? (
             <ul className={click ? 'nav-menu active' : 'nav-menu'} >
               <li className='nav-item'>
                 <Link to='/' className='nav-links' onClick={closeMobileMenu}>
@@ -73,8 +92,35 @@ function Navbar() {
                 </Link>
               </li>
             </ul>
+
+          ) : (
+            <>
+            <ul className={click ? 'nav-menu active' : 'nav-menu'} >
+              <li className='nav-item'>
+                
+              </li>
+              <li className='nav-item'>
+                
+              </li>
+              <li className='nav-item'>
+                
+              </li>
+              <li className='nav-item'>
+                
+              </li>
+              <li className='nav-item'>
+                
+              </li>
+              <li className='nav-item'>
+                
+              </li>
+            </ul>
+            <Button buttonStyle='btn-outline'>SIGN IN</Button>
+            </>
+          
+          )}
         </div>
-            {button && <Button buttonStyle='btn-outline'>SIGN IN</Button>}
+        
       </nav>
     </>
   )

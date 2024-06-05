@@ -1,7 +1,7 @@
 // src/GroupsPage.js
 import React from 'react';
 import './GroupsPage.css';
-import Group from '../Group';
+import Group from './widgets/Group';
 
 const groupsData = [
   {
