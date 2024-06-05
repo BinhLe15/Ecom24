@@ -23,22 +23,18 @@ function TeamTab({team_key ,players, team_badge}) {
                 <Tabs  value={value}
           onChange={handleChange}
           aria-label="team information tabs">
-                    <Tab label="Overview" style={{ color: value === 0 ? theme.palette.tabColor.active : theme.palette.tabColor.default }}/>
-                    <Tab label="Matches"{...a11yProps(1)} style={{ color: value === 1 ? theme.palette.tabColor.active : theme.palette.tabColor.default }}/>
-                    <Tab label="Stats" {...a11yProps(2)} style={{ color: value === 2 ? theme.palette.tabColor.active : theme.palette.tabColor.default }}/>
-                    <Tab label="Squad" {...a11yProps(3)} style={{ color: value === 3 ? theme.palette.tabColor.active : theme.palette.tabColor.default }}/>
+                    <Tab label="Matches"{...a11yProps(1)} style={{ color: value === 0 ? theme.palette.tabColor.active : theme.palette.tabColor.default }}/>
+                    <Tab label="Stats" {...a11yProps(2)} style={{ color: value === 1 ? theme.palette.tabColor.active : theme.palette.tabColor.default }}/>
+                    <Tab label="Squad" {...a11yProps(3)} style={{ color: value === 2 ? theme.palette.tabColor.active : theme.palette.tabColor.default }}/>
                 </Tabs>
             </Box>
             <CustomTabPanel value={value} index={0}>
-                <TeamOverview/>
-            </CustomTabPanel>
-            <CustomTabPanel value={value} index={1}>
                 <TeamMatches team_key={team_key} />
             </CustomTabPanel>
-            <CustomTabPanel value={value} index={2}>
+            <CustomTabPanel value={value} index={1}>
                 <TeamStats team_key={team_key}></TeamStats>
             </CustomTabPanel>
-            <CustomTabPanel value={value} index={3}>
+            <CustomTabPanel value={value} index={2}>
                 <TeamSquad players={players} team_badge={team_badge}></TeamSquad>
             </CustomTabPanel>
         </>

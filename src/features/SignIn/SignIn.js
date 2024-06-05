@@ -1,9 +1,10 @@
 import React from "react";
 import "./SignIn.css";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
-import { EventEmitter } from "events"; 
+import { EventEmitter } from "events";
+import { Button } from "@mui/material";
 
 export default function SignIn() {
     const [email, setEmail] = useState();
@@ -15,17 +16,18 @@ export default function SignIn() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post('http://localhost:8000/login', {email, password})
-        .then(result => {console.log(result)
-            if (result.data.status === "Success") {
-                localStorage.setItem("email", email);
-                localStorage.setItem("role", result.data.role) 
-                navigate('/')
-                window.location.reload();
-            }
-    })
-    .catch(err => console.log("Register failed: "+ err))
-        
+        axios.post('http://localhost:8000/login', { email, password })
+            .then(result => {
+                console.log(result)
+                if (result.data.status === "Success") {
+                    localStorage.setItem("email", email);
+                    localStorage.setItem("role", result.data.role)
+                    navigate('/')
+                    window.location.reload();
+                }
+            })
+            .catch(err => console.log("Register failed: " + err))
+
     }
 
     return (
@@ -33,13 +35,17 @@ export default function SignIn() {
             <form onSubmit={handleSubmit} className="sign-in_container col-4">
                 <div className="title">Sign in ECOM24</div>
                 <div className="text">Email</div>
-                <input type="text"  onChange={(e) => setEmail(e.target.value)}></input>
+                <input type="text" onChange={(e) => setEmail(e.target.value)}></input>
                 <div className="text">Password</div>
-                <input type="password"  onChange={(e) => setPassword(e.target.value)}></input>
+                <input type="password" onChange={(e) => setPassword(e.target.value)}></input>
                 <button
                     className="btn-login"
                 >Sign In</button>
-                <div className="back" >Go back</div>
+                
+
+                <div className="back" ><Link to='/sign-up'>
+                    Sign Up
+                </Link></div>
             </form>
         </div>
     )

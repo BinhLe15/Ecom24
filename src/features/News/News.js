@@ -23,6 +23,7 @@ function News() {
             try {
                 const role = localStorage.getItem('role')
                 setUserRole(role);
+                console.log(role)
             } catch (error) {
                 console.log("Error fetching role: ", error);
             }
@@ -45,7 +46,7 @@ function News() {
 
                 </Grid>
                 <Grid item justify="center" alignItems="center" container xs={4}>
-                    {userRole && (
+                    {userRole == "admin" && (
                         <Button href="/addnews" >Add News</Button>
                     )}
                 </Grid>
