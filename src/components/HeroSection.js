@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button } from './Button'
+import { TButton } from './TButton'
 import './HeroSection.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCirclePlay } from '@fortawesome/free-solid-svg-icons'
@@ -11,21 +11,25 @@ function HeroSection() {
         <h1>UEFA EURO 2024 IS COMING</h1>
         <p>Are you ready?</p>
         <div className='hero-btns'>
-            <Button
+            <TButton
                 className='btns'
                 buttonSize='btn--large'
                 buttonStyle='btn--outline'
+                link='https://www.uefa.com/euro2024/'
+                target='_blank'
             >
                 GET STARTED
-            </Button>
+            </TButton>
 
-            <Button
+            <TButton
                 className='btns'
                 buttonSize='btn--large'
                 buttonStyle='btn--primary'
+                link='https://www.youtube.com/watch?v=9MI5ffWouRMhttps://www.youtube.com/watch?v=9MI5ffWouRM'
+                target='_blank'
             >
                 WATCH TRAILER <FontAwesomeIcon icon={faCirclePlay} />
-            </Button>
+            </TButton>
         </div>
     </div>
   )

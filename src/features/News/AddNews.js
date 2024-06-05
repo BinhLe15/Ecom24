@@ -2,6 +2,7 @@ import { Description } from "@mui/icons-material";
 import { Stack, TextField, Button, Typography } from "@mui/material";
 import axios from "axios";
 import { useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom";
 
 function AddNews() {
     let [title, setTitle] = useState("")
@@ -9,6 +10,7 @@ function AddNews() {
     let [content, setContent] = useState("")
     let [image, setImage] = new useState("")
     const [previewImage, setPreviewImage] = useState(null);
+    const navigate = useNavigate();
 
 
     const handleImageChange = (event) => {
@@ -45,6 +47,7 @@ function AddNews() {
             formData.append("content", content);
             
             await axios.post("http://localhost:8000/writefromserver",formData)
+            navigate('/news')
             alert("News data saved");
         } catch (error) {
             console.log("Error while saving dude: ", error.message);

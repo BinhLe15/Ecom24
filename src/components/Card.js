@@ -13,33 +13,33 @@ function Card() {
               src='images/georgia-news.jpg'
               text='Georgia breakthrough years in the making'
               label='News'
-              path='/posts'
+              path='/news'
             />
             <CardItem
-              src='images/portuguese-news.jpg'
-              text='Six games to look out for'
+              src='images/newsa1.jpg'
+              text='QUIZ: How well do you remember the 2022/23 UEFA Nations League?'
               label='News'
-              path='/posts'
+              path='/news'
             />
           </ul>
           <ul className='cards__items'>
             <CardItem
               src='images/trophytourannouncement.jpg'
-              text='Trophy Tour dates announced'
+              text='UEFA Euro 2024 Trophy Tour Makes Way Across Germany'
               label='News'
-              path='/posts'
+              path='/news'
             />
             <CardItem
               src='images/qualifired-teams.jpg'
               text='Check out qualifired teams in UEFA EURO 2024'
               label='News'
-              path='/posts'
+              path='/news'
             />
             <CardItem
               src='images/group_c.jpg'
               text='EURO 2024 Group C in_depth'
               label='News'
-              path='/posts'
+              path='/news'
             />
           </ul>
         </div>

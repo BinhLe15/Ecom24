@@ -3,9 +3,11 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTypo3 } from '@fortawesome/free-brands-svg-icons';
 import { faXmark, faBars } from '@fortawesome/free-solid-svg-icons';
-import { Button } from './Button';
+import { TButton } from './TButton';
 import './Navbar.css';
 import axios from 'axios';
+import { EventEmitter } from "events"; 
+
 function Navbar() {
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
@@ -14,19 +16,28 @@ function Navbar() {
 
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
+  const eventEmitter = new EventEmitter();
 
   axios.defaults.withCredentials = true;
 
   useEffect(() => {
-    axios.get('http://localhost:8000/verify')
-      .then(res => {
-        if (res.data.status) {
-          setIsLogin(true)
-        } else {
-
+    const verifyLogin = async () => {
+        try {
+            const res = await axios.get('http://localhost:8000/verify');
+            if (res.data.status) {
+                setIsLogin(true);
+                console.log("Log status:" + isLogin);
+            } else {
+                setIsLogin(false);
+            }
+        } catch (error) {
+            console.error('Error verifying login:', error);
         }
-      })
-  })
+    };
+
+    verifyLogin();
+
+}, []);
 
 
 
@@ -36,6 +47,10 @@ function Navbar() {
     } else {
       setButton(true);
     }
+  }
+
+  const handleLogout = () => {
+    setIsLogin(false);
   }
 
   // show SIGN IN button only 1 time even when refresh
@@ -86,10 +101,9 @@ function Navbar() {
                   Groups
                 </Link>
               </li>
+
               <li className='nav-item'>
-                <Link to='/sign-in' className='nav-links-mobile' onClick={closeMobileMenu}>
-                  Sign In
-                </Link>
+                <TButton buttonStyle='btn_outline' className='btn_logout' onClick={handleLogout} >Log out</TButton>
               </li>
             </ul>
 
@@ -115,7 +129,7 @@ function Navbar() {
                 
               </li>
             </ul>
-            <Button buttonStyle='btn-outline'>SIGN IN</Button>
+            <TButton variant="contained" link='/sign-in' target={''} >SIGN IN</TButton>
             </>
           
           )}

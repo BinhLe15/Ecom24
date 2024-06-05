@@ -3,11 +3,13 @@ import "./SignIn.css";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
+import { EventEmitter } from "events"; 
 
 export default function SignIn() {
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
     const navigate = useNavigate();
+    const eventEmitter = new EventEmitter();
 
     axios.defaults.withCredentials = true
 
@@ -17,8 +19,9 @@ export default function SignIn() {
         .then(result => {console.log(result)
             if (result.data.status === "Success") {
                 localStorage.setItem("email", email);
-                localStorage.setItem("role", result.data.role)
+                localStorage.setItem("role", result.data.role) 
                 navigate('/')
+                window.location.reload();
             }
     })
     .catch(err => console.log("Register failed: "+ err))

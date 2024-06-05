@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from './Button.js';
+import { Button } from '@mui/material';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTypo3 } from '@fortawesome/free-brands-svg-icons';
